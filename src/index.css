@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +11,86 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.invalid-feedback-wrapper-md {
+  display: flex;
+}
+
+.container .invalid-feedback-md {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .input-group{
+    display: block;
+  }
+
+  .container .input-group .form-control {
+    border-radius: .25rem;
+    /*border-top-right-radius: .25rem;*/
+    /*border-bottom-right-radius: .25rem;*/
+  }
+
+  .invalid-feedback-wrapper-md{
+    display: none;
+  }
+
+  .container .invalid-feedback-md {
+    display: block;
+  }
+}
+
+.invalid-feedback{
+    display: block;
+}
+
+.attach-file.error-border, .error-border {
+  border-color: red;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.upload-file {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.upload-file .error-size-file {
+  color: red;
+}
+
+.btn-delete {
+  color: #d44950;
+  white-space: nowrap;
+}
+
+.btn-delete:hover {
+  color: darkred;
+}
+
+.attach-file {
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
+.attach-file .fa-paperclip {
+  color: grey;
+}
+
+.img-name-file {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.size-file {
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.error-size-file {
+  color: red;
 }
