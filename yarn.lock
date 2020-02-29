@@ -4547,6 +4547,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+fs@0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
+
 fsevents@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.2.tgz#4c0a1fb34bc68e543b4b82a9ec392bfbda840805"
@@ -9125,6 +9130,11 @@ send@0.17.1:
     on-finished "~2.3.0"
     range-parser "~1.2.1"
     statuses "~1.5.0"
+
+sendsay-api@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/sendsay-api/-/sendsay-api-2.4.0.tgz#7dbadfeab8b3878c8a6dd0df08a2c6a11bed7497"
+  integrity sha512-4xZV9M7MVM/jllWA4IdU+N0+LnkcQqBPS3GO/kf53c2gSsSq/Bv14KkZQ2F02ORQyo3/3W/FrpQEsCPxDdfLoQ==
 
 serialize-javascript@^1.7.0:
   version "1.9.1"

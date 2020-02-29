@@ -22,6 +22,10 @@ code {
 }
 
 @media (max-width: 767px) {
+  h1, h3 {
+      font-size: 1.5rem;
+  }
+
   .input-group{
     display: block;
   }
@@ -94,3 +98,39 @@ input[type="file"] {
 .error-size-file {
   color: red;
 }
+
+.form-wrapper {
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.all-document-wrapper {
+  background-color: #f8f9fa;;
+}
+
+.table thead {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.table thead th {
+  color: #999;
+  font-weight: 400;
+}
+
+.d-inline-grid {
+    display: inline-grid;
+}
+
+.greenStatusMessage {
+  color: #28a745;
+}
+
+.redStatusMessage {
+  color: red;
+}
+
+.grayStatusMessage {
+  color: #999;
+}
+

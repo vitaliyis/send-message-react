@@ -1,15 +1,18 @@
 import React from 'react'
+import {MAX_FILE_SIZE} from "../../const/constants";
 
 const AttachFile = props => {
-  const {name, size, index, removeFileInArray, isMaxSizeFile} = props
+  const {nameFile, size, index, removeFileInArray} = props
+
+  const isMaxSizeFile = size / MAX_FILE_SIZE > 1
 
   return (
 
-    <div className="col-md-6 col-12 mb-3" key={name}>
+    <div className="col-md-6 col-12 mb-3">
       <div className={`d-flex justify-content-between align-items-baseline attach-file ${isMaxSizeFile ? "error-border" : ""}`}>
         <div className="d-inline img-name-file">
           <i className="fas fa-paperclip mr-2 ml-2"></i>
-          <span>{name}</span>
+          <span>{nameFile}</span>
 
         </div>
 
