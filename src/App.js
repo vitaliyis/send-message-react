@@ -1,70 +1,55 @@
-import React, {useState} from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 import Form from "./components/Form";
 import SentMessages from "./components/SentMessages";
-import {apiGet} from "./api/api";
+import { apiGet } from "./api/api";
+import { MESSAGE_STATUS_SUCCESS } from "./const/constants";
 
 function App() {
-  const [arrData, setArrData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [messages, setMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const setStatusEmail = async({status, theme, track}) => {
-    const arr = arrData.concat()
+  const getStatusEmail = async ({ status, theme, track }) => {
+    try {
+      setIsLoading(true);
+      const updateMessages = [
+        {
+          status,
+          theme,
+          track
+        },
+        ...messages
+      ];
 
-    arr.unshift({
-      status,
-      theme,
-      track
-    })
-    // arr.map(async item => {
-    //   const {status} = await apiGet(item.track)
-    //   item.status = status
-    //   return item
-    //
-    // })
+      const messagesInQueue = updateMessages.filter(
+        message => message.track > MESSAGE_STATUS_SUCCESS
+      );
 
-    // setIsLoading(true)
+      const promisesTrackes = messagesInQueue.map(item => apiGet(item.track));
 
-    const promisesTrackes = arr.map(item => {
-      // track.get запускаем только для тех писем, которые находятся в очереди, status > -1
-      if (item.track > -1) {
-        return apiGet(item.track)
-      }
-    });
-    const statuses = await Promise.all(promisesTrackes);
-    console.log('statuses ', statuses)
-    const updateArr = arr.map((item, index) => {
-      item.status = statuses[index].status;
-      return item;
-    });
-    setIsLoading(false)
-    setArrData(updateArr)
-  }
+      const statuses = await Promise.all(promisesTrackes);
 
-  const setPreload = value => {
-    setIsLoading(value)
-  }
+      const updateMessagesWithStatus = updateMessages.map((item, index) => ({
+        ...item,
+        status: statuses[index].status
+      }));
 
+      setIsLoading(false);
+      setMessages(updateMessagesWithStatus);
+    } catch (error) {}
+  };
 
   return (
     <div className="all-document-wrapper">
       <div className="container p-5">
         <div className="p-4 form-wrapper">
           <h1 className="mb-4">Отправлялка сообщений</h1>
-          <Form
-            setStatusEmail={setStatusEmail}
-            setPreload={setPreload}
-          />
+          <Form getStatusEmail={getStatusEmail} />
         </div>
 
-
-        <SentMessages
-          arrData={arrData}
-          isLoading={isLoading}
-        />
+        <SentMessages arrData={messages} isLoading={isLoading} />
       </div>
     </div>
-
   );
 }
 
