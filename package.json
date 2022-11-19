@@ -10,7 +10,7 @@
     "fs": "0.0.1-security",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
+    "react-scripts": "5.0.1",
     "sendsay-api": "^2.4.0"
   },
   "scripts": {
